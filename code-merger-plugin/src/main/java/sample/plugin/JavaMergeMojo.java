@@ -26,41 +26,35 @@ public class JavaMergeMojo extends AbstractMojo {
 
             StringBuilder merged = new StringBuilder();
 
-            Files.walk(sourceDirectory.toPath())
-                    .filter(path -> path.toString().endsWith(".java"))
-                    .forEach(path -> {
+            Files.walk(sourceDirectory.toPath()).filter(path -> path.toString().endsWith(".java")).forEach(path -> {
 
-                        try {
+                try {
 
-                            merged.append("// File: ")
-                                    .append(path.getFileName())
-                                    .append("\n");
+                    merged.append("// File: ")
+                            .append(path.getFileName())
+                            .append("\n");
 
-                            merged.append(Files.readString(path));
+                    merged.append(Files.readString(path));
 
-                            merged.append("\n\n");
+                    merged.append("\n\n");
 
-                        } catch (IOException e) {
-                            throw new UncheckedIOException(e);
-                        }
+                } catch (IOException e) {
+                    throw new UncheckedIOException(e);
+                }
 
-                    });
+            });
 
-            File output =
-                    new File(buildDirectory,
-                            "merged/MergedCode.java");
+            File output = new File(buildDirectory, "merged/MergedCode.java");
 
             output.getParentFile().mkdirs();
 
-            Files.writeString(output.toPath(),
-                    merged.toString());
+            Files.writeString(output.toPath(), merged.toString());
 
             getLog().info("Created: " + output);
 
         } catch (Exception e) {
 
-            throw new MojoExecutionException(
-                    "Error while merging java files", e);
+            throw new MojoExecutionException("Error while merging java files", e);
         }
     }
 }

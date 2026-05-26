@@ -9,8 +9,9 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>code-checker-plugin</module>
         <module>code-merger-plugin</module>
-        <module>demo-app</module>
+        <module>test-app</module>
     </modules>
 
 </project>

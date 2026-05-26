@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>sample.plugin</groupId>
-    <artifactId>demo-app</artifactId>
+    <artifactId>test-app</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <build>
@@ -29,6 +29,23 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>sample.plugin</groupId>
+                <artifactId>code-checker-maven-plugin</artifactId>
+                <version>1.0-SNAPSHOT</version>
+
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
 
         </plugins>
 

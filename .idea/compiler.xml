@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="demo-app" />
+        <module name="code-checker-maven-plugin" />
         <module name="java-merge-maven-plugin" />
+        <module name="test-app" />
       </profile>
     </annotationProcessing>
   </component>
