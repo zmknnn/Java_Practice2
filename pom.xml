@@ -1,0 +1,16 @@
+<project>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>sample.plugin</groupId>
+    <artifactId>custom-maven-platform</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>code-merger-plugin</module>
+        <module>demo-app</module>
+    </modules>
+
+</project>
