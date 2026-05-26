@@ -8,6 +8,8 @@
 
     <packaging>pom</packaging>
 
+    <name>Java Practice2 Maven</name>
+
     <modules>
         <module>code-checker-plugin</module>
         <module>code-merger-plugin</module>
