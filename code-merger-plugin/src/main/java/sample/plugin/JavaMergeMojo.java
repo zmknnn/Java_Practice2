@@ -30,9 +30,7 @@ public class JavaMergeMojo extends AbstractMojo {
 
                 try {
 
-                    merged.append("// File: ")
-                            .append(path.getFileName())
-                            .append("\n");
+                    merged.append("// File: ").append(path.getFileName()).append("\n");
 
                     merged.append(Files.readString(path));
 
@@ -45,8 +43,12 @@ public class JavaMergeMojo extends AbstractMojo {
             });
 
             File output = new File(buildDirectory, "merged/MergedCode.java");
+            File parent = output.getParentFile();
 
-            output.getParentFile().mkdirs();
+            if (parent != null && !parent.exists()) {
+                parent.mkdirs();
+            }
+
 
             Files.writeString(output.toPath(), merged.toString());
 

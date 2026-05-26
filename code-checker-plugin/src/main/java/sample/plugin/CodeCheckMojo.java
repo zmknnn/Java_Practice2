@@ -24,10 +24,7 @@ public class CodeCheckMojo extends AbstractMojo {
 
         try {
 
-            Files.walk(sourceDirectory.toPath())
-                    .filter(Files::isRegularFile)
-                    .filter(p -> p.toString().endsWith(".java"))
-                    .forEach(path -> checkFile(path, violations));
+            Files.walk(sourceDirectory.toPath()).filter(Files::isRegularFile).filter(p -> p.toString().endsWith(".java")).forEach(path -> checkFile(path, violations));
 
         } catch (IOException e) {
             throw new MojoExecutionException("Failed to read source directory", e);
@@ -37,9 +34,7 @@ public class CodeCheckMojo extends AbstractMojo {
             for (String v : violations) {
                 getLog().error(v);
             }
-            throw new MojoExecutionException(
-                    "Code check failed. Found " + violations.size() + " violation(s)."
-            );
+            throw new MojoExecutionException("Code check failed. Found " + violations.size() + " violation(s).");
         }
 
         getLog().info("Code check passed - no violations found");
